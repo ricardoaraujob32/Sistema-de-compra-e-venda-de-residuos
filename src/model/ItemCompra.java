@@ -16,6 +16,10 @@ public class ItemCompra {
     private double preco;
     private int unidMedida;
 
+    public ItemCompra() {
+        residuo = new Residuo();
+    }
+    
     /**
      * @return the residuo
      */

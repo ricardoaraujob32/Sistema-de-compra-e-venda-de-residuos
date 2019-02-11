@@ -6,18 +6,26 @@
 
 package model;
 
-
+import java.io.Serializable;
 
 /**
  *
  * @author ricardobalduino
  */
-public class ItemLeilao {
+public class ItemLeilao implements Serializable {
     private int id;
     private String descricao;
     private double lanceMinimo;
     private double valorAtual;
+    private Residuo residuo;
 
+    /**
+     *
+     */
+    public ItemLeilao() {
+        residuo = new Residuo();
+    }    
+    
     /**
      * @return the id
      */
@@ -72,5 +80,19 @@ public class ItemLeilao {
      */
     public void setValorAtual(double valorAtual) {
         this.valorAtual = valorAtual;
+    }
+
+    /**
+     * @return the residuo
+     */
+    public Residuo getResiduo() {
+        return residuo;
+    }
+
+    /**
+     * @param residuo the residuo to set
+     */
+    public void setResiduo(Residuo residuo) {
+        this.residuo = residuo;
     }
 }

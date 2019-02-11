@@ -6,6 +6,7 @@
 
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.Set;
  *
  * @author ricardobalduino
  */
-public class ParticipanteLeilao {
+public class ParticipanteLeilao implements Serializable {
     private int id;
     private Empresa empresa;
     private HashSet<ItemLeilao> conjuntoItens;

@@ -6,6 +6,7 @@
 
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,25 +15,23 @@ import java.util.List;
  *
  * @author ricardobalduino
  */
-public class Compra {
+public class Compra implements Serializable {
     private Empresa gerador;
     private Empresa comprador;    
     private LocalDate data;
     private double valor;
     private int formaPgto;
     private int status;
-    private List<ItemCompra> listaItens;
+    private ArrayList<ItemCompra> listaItens;
 
-    public Compra(Empresa gerador, Empresa comprador, LocalDate data, double valor, int formaPgto, int status) {
-        this.gerador = gerador;
-        this.comprador = comprador;
-        this.data = data;
-        this.valor = valor;
-        this.formaPgto = formaPgto;
-        this.status = status;
-        this.listaItens = new ArrayList<>();
+    /**
+     *
+     */
+    public Compra() {
+        gerador = new Empresa();
+        comprador = new Empresa();
+        listaItens = new ArrayList<>();
     }
-
     
     /**
      * @return the gerador
@@ -76,12 +75,16 @@ public class Compra {
         return status;
     }
     
-    public ItemCompra getItem(ItemCompra i){
-        return listaItens.contains(i) ? i : null;
+    public List<ItemCompra> getListaItens(){
+        return listaItens;
     }
     
-    public boolean adicionarItem(ItemCompra i){
-        return listaItens.add(i);
+    public void adicionarItem(ItemCompra i){
+        listaItens.add(i);
+    }
+    
+    public void removerItem(ItemCompra i){
+        listaItens.remove(i);
     }
 
     /**

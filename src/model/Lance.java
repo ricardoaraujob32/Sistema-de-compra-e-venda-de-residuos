@@ -6,13 +6,14 @@
 
 package model;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 
 /**
  *
  * @author ricardobalduino
  */
-public class Lance {
+public class Lance implements Serializable {
     private double valor;
     private LocalTime hora;
 

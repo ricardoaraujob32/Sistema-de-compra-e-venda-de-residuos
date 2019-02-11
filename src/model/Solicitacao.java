@@ -6,10 +6,13 @@
 
 package model;
 
+import java.io.Serializable;
+
+
 /**
  *
  * @author ricardobalduino
  */
-public class Solicitacao {
+public class Solicitacao implements Serializable {
     
 }

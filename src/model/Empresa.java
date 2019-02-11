@@ -6,11 +6,13 @@
 
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author ricardobalduino
  */
-public class Empresa {
+public class Empresa implements Serializable {
     private String nome;
     private String cnpj;
     private String ramo;
@@ -21,24 +23,6 @@ public class Empresa {
     private String rg;
     private String cargo;
     private String email;
-
-    public Empresa(String nome, String cnpj, String ramo, String endereco,
-            String bairro, String telefone, String responsavel, String rg, String cargo, String email) {
-        this.nome = nome;
-        this.cnpj = cnpj;
-        this.ramo = ramo;
-        this.endereco = endereco;
-        this.bairro = bairro;
-        this.telefone = telefone;
-        this.responsavel = responsavel;
-        this.rg = rg;
-        this.cargo = cargo;
-        this.email = email;
-    }
-
-    Empresa() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     /**
      * @return the nome
@@ -186,8 +170,4 @@ public class Empresa {
                 "\nBairo: " + bairro + "\nTelefone: " + telefone + "\nResponsável: " + responsavel +
                 "\nRG: " + rg + "\nCargo: " + cargo + "\nE-Mail: " + email;
     }
-    
-    
-    
-    
 }

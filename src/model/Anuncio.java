@@ -6,10 +6,12 @@
 
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author ricardobalduino
  */
-public class Anuncio {
+public class Anuncio implements Serializable {
     
 }

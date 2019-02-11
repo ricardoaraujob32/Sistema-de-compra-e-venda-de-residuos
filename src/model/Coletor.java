@@ -6,10 +6,12 @@
 
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author ricardobalduino
  */
-public class Coletor {
+public class Coletor implements Serializable {
     
 }

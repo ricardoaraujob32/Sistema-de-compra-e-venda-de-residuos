@@ -6,6 +6,7 @@
 
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.LinkedHashSet;
@@ -15,7 +16,7 @@ import java.util.Set;
  *
  * @author ricardobalduino
  */
-public class Leilao {
+public class Leilao implements Serializable {
     private int idLeilao;
     private int numParticipantes;
     private int numItens;
@@ -27,18 +28,14 @@ public class Leilao {
     private Set<ParticipanteLeilao> listaEmpresa;
     private Set<ItemLeilao> listaResiduo;
 
-    public Leilao(int idLeilao, int numParticipantes, int numItens, 
-            String cnpjSolicitante, LocalDate dataInicio, LocalTime horaInicio, LocalTime duracao, int status) {
-        this.idLeilao = idLeilao;
-        this.numParticipantes = numParticipantes;
-        this.numItens = numItens;
-        this.cnpjSolicitante = cnpjSolicitante;
-        this.dataInicio = dataInicio;
-        this.horaInicio = horaInicio;
-        this.duracao = duracao;
-        this.status = status;
-        this.listaEmpresa = new LinkedHashSet<>();
-        this.listaResiduo = new LinkedHashSet<>();
+    /**
+     *
+     */
+    public Leilao() {
+        dataInicio = LocalDate.now();
+        horaInicio = LocalTime.now();
+        listaEmpresa = new LinkedHashSet<>();
+        listaResiduo = new LinkedHashSet<>();
     }
     
     /**
@@ -97,26 +94,56 @@ public class Leilao {
         return status;
     }
     
+    /**
+     *
+     * @param p
+     * @return
+     */
     public ParticipanteLeilao getParticipante(ParticipanteLeilao p){
         return listaEmpresa.contains(p) ? p : null;
     }
     
+    /**
+     *
+     * @param i
+     * @return
+     */
     public ItemLeilao getItem(ItemLeilao i){
         return listaResiduo.contains(i) ? i : null;
     }
     
+    /**
+     *
+     * @param p
+     * @return
+     */
     public boolean adicionarParticipante(ParticipanteLeilao p){
         return listaEmpresa.add(p);
     }
     
+    /**
+     *
+     * @param p
+     * @return
+     */
     public boolean removerParticipante(ParticipanteLeilao p){
         return listaEmpresa.remove(p);
     }
     
+    /**
+     *
+     * @param i
+     * @return
+     */
     public boolean adicionarItem(ItemLeilao i){
         return listaResiduo.add(i);
     }
     
+    /**
+     *
+     * @param i
+     * @return
+     */
     public boolean removerItem(ItemLeilao i){
         return listaResiduo.remove(i);
     }
@@ -177,6 +204,10 @@ public class Leilao {
         this.status = status;
     }
 
+    /**
+     * 
+     * @return 
+     */
     @Override
     public String toString() {
         return "Código de identificação: " + idLeilao + "\nTotal de participantes: " + numParticipantes +
@@ -184,7 +215,4 @@ public class Leilao {
                "\nData de início: " + dataInicio + "\nHora de início: " + horaInicio + "\nDuração: " + duracao +
                "\nStatus: " + status;
     }
-    
-    
-    
 }

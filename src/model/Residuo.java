@@ -6,11 +6,13 @@
 
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author ricardobalduino
  */
-public class Residuo {
+public class Residuo implements Serializable {
     private int id;
     private String descricao;
 
